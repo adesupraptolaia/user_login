@@ -11,6 +11,15 @@ Port 9001 (actually) will not expose to external, it can only access internally 
 
 ## Flow
 
+- Login User Flow
+  ![create_new_user_flow](https://github.com/adesupraptolaia/user_login/tree/main/assert/assert/login_flow.png)
+
+- Create New User Flow
+  ![create_new_user_flow](https://github.com/adesupraptolaia/user_login/tree/main/assert/assert/create_new_user_flow.png)
+
+- Delete User Flow
+  ![create_new_user_flow](https://github.com/adesupraptolaia/user_login/tree/main/assert/assert/delete_user_flow.png)
+
 ## How to running
 
 You can use `docker-compose` or running it manually.
@@ -51,4 +60,4 @@ and auth-app `http://localhost:9000/swagger/index.html`
 
 ## Postman
 
-for testing purpose, use postman collection by importing file `./assert/postman.json` to you postman app
+for testing purpose, use postman collection by importing file [postman.json](https://github.com/adesupraptolaia/user_login/tree/main/assert/postman.json) to your postman app
