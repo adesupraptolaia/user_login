@@ -1,0 +1,16 @@
+auth_server:
+  port:
+    public: 9000
+    private: 9001
+user_server:
+  port: 8000
+database:
+  host: localhost
+  port: 3306
+  username: root
+  password: root
+  dbname: user_login
+secret:
+  access_token: "access_token_secret"
+  refresh_token: "refresh_token_secret"
+auth_service_private_url: "localhost:9001"

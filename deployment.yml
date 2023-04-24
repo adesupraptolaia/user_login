@@ -1,0 +1,155 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql
+spec:
+  selector:
+    app: mysql
+  ports:
+    - name: mysql
+      port: 3306
+      targetPort: 3306
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql
+spec:
+  selector:
+    matchLabels:
+      app: mysql
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+        - name: mysql
+          image: mysql:8.0
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: root
+            - name: MYSQL_DATABASE
+              value: user_login
+          ports:
+            - containerPort: 3306
+              name: mysql
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: user-app
+spec:
+  selector:
+    app: user-app
+  ports:
+    - name: http
+      port: 8000
+      targetPort: 8000
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-app
+spec:
+  selector:
+    matchLabels:
+      app: user-app
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: user-app
+    spec:
+      containers:
+        - name: user-app
+          image: adesupraptolaia/user_login:latest
+          env:
+            - name: DB_HOST
+              value: mysql
+            - name: APP_NAME
+              value: user
+            - name: AUTH_SERVICE_PRIVATE_URL
+              value: "auth-app-private.default.svc.cluster.local:9001"
+          ports:
+            - containerPort: 8000
+              name: http
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 8000
+            initialDelaySeconds: 30
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 8000
+            initialDelaySeconds: 30
+            periodSeconds: 10
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: auth-app
+spec:
+  selector:
+    app: auth-app
+  ports:
+    - name: http-public
+      port: 9000
+      targetPort: 9000
+  type: LoadBalancer
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: auth-app-private
+spec:
+  selector:
+    app: auth-app
+  ports:
+    - name: http-private
+      port: 9001
+      targetPort: 9001
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auth-app
+spec:
+  selector:
+    matchLabels:
+      app: auth-app
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: auth-app
+    spec:
+      containers:
+        - name: auth-app
+          image: adesupraptolaia/user_login:latest
+          env:
+            - name: DB_HOST
+              value: mysql
+            - name: APP_NAME
+              value: auth
+          ports:
+            - containerPort: 9000
+              name: http-public
+            - containerPort: 9001
+              name: http-private
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 9000
+            initialDelaySeconds: 30
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 9000
+            initialDelaySeconds: 30
+            periodSeconds: 10

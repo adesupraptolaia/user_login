@@ -1,0 +1,319 @@
+definitions:
+  entity.CreateUserRequest:
+    properties:
+      address:
+        type: string
+      date_of_birth:
+        type: string
+      name:
+        type: string
+      password:
+        type: string
+      user_ksuid:
+        type: string
+      username:
+        type: string
+    required:
+    - address
+    - date_of_birth
+    - name
+    - password
+    - username
+    type: object
+  entity.User:
+    properties:
+      ksuid:
+        type: string
+      password:
+        type: string
+      role:
+        type: string
+      username:
+        type: string
+    required:
+    - password
+    - username
+    type: object
+  entity.UserProfile:
+    properties:
+      address:
+        type: string
+      date_of_birth:
+        type: string
+      name:
+        type: string
+      user_ksuid:
+        type: string
+    required:
+    - address
+    - date_of_birth
+    - name
+    type: object
+  entity.UserRequest:
+    properties:
+      password:
+        type: string
+      username:
+        type: string
+    required:
+    - password
+    - username
+    type: object
+  user_controller.ErrorResp:
+    properties:
+      error_message:
+        type: string
+      status:
+        description: error
+        type: string
+    type: object
+  user_controller.TokenSuccessResp:
+    properties:
+      data:
+        properties:
+          access_token:
+            type: string
+          refresh_token:
+            type: string
+        type: object
+      status:
+        description: success
+        type: string
+    type: object
+  user_controller.UserSuccessResp:
+    properties:
+      data:
+        $ref: '#/definitions/entity.User'
+      status:
+        description: success
+        type: string
+    type: object
+  user_profile_controller.ErrorResp:
+    properties:
+      error_message:
+        type: string
+      status:
+        description: error
+        type: string
+    type: object
+  user_profile_controller.SuccessResp:
+    properties:
+      data:
+        $ref: '#/definitions/entity.UserProfile'
+      status:
+        description: success
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /login:
+    post:
+      consumes:
+      - application/json
+      description: Login using username and password
+      parameters:
+      - description: payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/entity.UserRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/user_controller.TokenSuccessResp'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/user_controller.ErrorResp'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/user_controller.ErrorResp'
+      summary: Login
+      tags:
+      - Public
+  /refresh:
+    get:
+      consumes:
+      - application/json
+      description: Refresh AccessToken
+      parameters:
+      - description: Bearer {refresh_token}
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/user_controller.TokenSuccessResp'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/user_controller.ErrorResp'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/user_controller.ErrorResp'
+      summary: Refresh Token
+      tags:
+      - Public
+  /user/{user_ksuid}:
+    delete:
+      consumes:
+      - application/json
+      description: Only admin can delete user
+      parameters:
+      - description: Ksuid of User
+        in: path
+        name: user_ksuid
+        required: true
+        type: string
+      - description: Bearer {token}
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/user_profile_controller.SuccessResp'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/user_profile_controller.ErrorResp'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/user_profile_controller.ErrorResp'
+      summary: Delete User
+      tags:
+      - users
+    get:
+      consumes:
+      - application/json
+      description: Get a user by Userksuid
+      parameters:
+      - description: Ksuid of User
+        in: path
+        name: user_ksuid
+        required: true
+        type: string
+      - description: Bearer {token}
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/user_profile_controller.SuccessResp'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/user_profile_controller.ErrorResp'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/user_profile_controller.ErrorResp'
+      summary: Get a user by Userksuid
+      tags:
+      - users
+  /user/{user_ksuid}/update:
+    post:
+      consumes:
+      - application/json
+      description: Only admin can update user profile
+      parameters:
+      - description: Ksuid of User
+        in: path
+        name: user_ksuid
+        required: true
+        type: string
+      - description: Bearer {token}
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: Request Payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/entity.UserProfile'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/user_profile_controller.SuccessResp'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/user_profile_controller.ErrorResp'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/user_profile_controller.ErrorResp'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/user_profile_controller.ErrorResp'
+      summary: Update User Profile
+      tags:
+      - users
+  /user/create:
+    post:
+      consumes:
+      - application/json
+      description: Only admin can create new user
+      parameters:
+      - description: Bearer {token}
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: Request Payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/entity.CreateUserRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/user_profile_controller.SuccessResp'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/user_profile_controller.ErrorResp'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/user_profile_controller.ErrorResp'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/user_profile_controller.ErrorResp'
+      summary: Create New User
+      tags:
+      - users
+swagger: "2.0"

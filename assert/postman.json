@@ -1,0 +1,350 @@
+{
+	"info": {
+		"_postman_id": "2b0c6680-1778-401b-b96d-78c21384211e",
+		"name": "User Login",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19993517"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Get User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2tzdWlkIjoiMk9va1dhMnlEdzd5aTdvOVJwc0FsNTh4dW9XIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNjgyMzE2ODcyfQ.8WNe-B1nW7KBQneUAqdSwY-eLYM0L1O7jQGNI_E9UaA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "authority",
+								"value": "api.integration.kargo.tech"
+							},
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "accept-language",
+								"value": "id,en-US;q=0.9,en;q=0.8"
+							},
+							{
+								"key": "authorization",
+								"value": "Bearer eyJraWQiOiJqanFOc2EzbzVITXNsU0hBUFZRTm4wMUhnY0Q2bkdGVXFNemZCZTZjZnlvPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI4MDBlMmVjNC1hYjNhLTRiOTEtYjc5ZS03ODU1N2UyZjZiNjkiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImN1c3RvbTpjb21wYW55X25hbWUiOiJQVCBRQSBCcm9rZXJhZ2UiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuYXAtc291dGhlYXN0LTEuYW1hem9uYXdzLmNvbVwvYXAtc291dGhlYXN0LTFfUlhJWHR6RjFKIiwicGhvbmVfbnVtYmVyX3ZlcmlmaWVkIjp0cnVlLCJjdXN0b206a3N1aWQiOiIxbzBGemRJYkFlYVdVNTZpZ3FEYlNxdUE1b0oiLCJjb2duaXRvOnVzZXJuYW1lIjoiODAwZTJlYzQtYWIzYS00YjkxLWI3OWUtNzg1NTdlMmY2YjY5IiwiY3VzdG9tOmlzX3RtcyI6InRydWUiLCJvcmlnaW5fanRpIjoiZDc2YTA2NzMtZGUwNi00YjQ5LThkNzItNjZjZDk1MzBiMzE5IiwiYXVkIjoiNGwzaGhidXJpdDYwODVsbjNrcnN1dXNhYWsiLCJjdXN0b206YWNjb3VudF90eXBlIjoiY29tcGFueSIsImV2ZW50X2lkIjoiNzYzYmFhMGMtZGZhOC00YTY3LWEyMzYtOGI4MjE2M2Y5MWM1IiwidG9rZW5fdXNlIjoiaWQiLCJhdXRoX3RpbWUiOjE2Nzk2NDY2ODAsIm5hbWUiOiJCcm9rZXJhZ2UiLCJwaG9uZV9udW1iZXIiOiIrNjI4MTU3Mzk5MDk3MyIsImV4cCI6MTY3OTczMzA3OSwiY3VzdG9tOnJvbGUiOiJ0cmFuc3BvcnRlciIsImlhdCI6MTY3OTY0NjY4MCwianRpIjoiYmFkYTU2ZWItMTllOC00ZmRmLWEyN2ItYTBkNzllNTEyZWM2IiwiZW1haWwiOiJxYWthcmdvQHlhaG9vLmNvbSJ9.pD9aNODR4WNZLu94Fv1XRxrNcXYI4Zodmy9_yG7u9sC2dGHNfhe3pi7jt08nGZ93Y2M0nf49_HVghBIHOcksu35AcxKqeICyOo0-e5dAVBuRNOQalV7cGkTBPj3JIr5bri01pwSylUQpDo4yw69icJlK3zQf-H6RsMdQrUkbFRGJQBr1rVwzDpPj3jxiSApWe3lQqlM_mTd6uiNCdo9LDdkWP8vgLETu-1wZ8RPksxYuCAlh6ef5E9T64--9HnOVZq1P7_VUQcULW6MUxbFyNMUW-LJSn6StEvi0D4ctnm23_i6kOJmUAdI-wk4SJqdgr3StmEBaC4Ma3Ba1BBCEOQ"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "origin",
+								"value": "https://freight-integration.kargo.tech"
+							},
+							{
+								"key": "referer",
+								"value": "https://freight-integration.kargo.tech/"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Microsoft Edge\";v=\"111\", \"Not(A:Brand\";v=\"8\", \"Chromium\";v=\"111\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-site"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36 Edg/111.0.1661.51"
+							},
+							{
+								"key": "x-kargo-app",
+								"value": "btms"
+							},
+							{
+								"key": "x-kargo-role",
+								"value": "brokerage"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/user/2OrLNqYEmI8L8a4RUyWrUZHMosz",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"user",
+								"2OrLNqYEmI8L8a4RUyWrUZHMosz"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2tzdWlkIjoiMk9va1dhMnlEdzd5aTdvOVJwc0FsNTh4dW9XIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNjgyMzE2ODcyfQ.8WNe-B1nW7KBQneUAqdSwY-eLYM0L1O7jQGNI_E9UaA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"user2\",\r\n    \"password\": \"user2\",\r\n    \"name\": \"User 2 - New\",\r\n    \"date_of_birth\": \"1994-04-20\",\r\n    \"address\": \"Perawang\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/user/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"user",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2tzdWlkIjoiMk9va1dhMnlEdzd5aTdvOVJwc0FsNTh4dW9XIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNjgyMzE2ODcyfQ.8WNe-B1nW7KBQneUAqdSwY-eLYM0L1O7jQGNI_E9UaA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Ade Laia Update\",\r\n    \"date_of_birth\": \"2000-06-19\",\r\n    \"address\": \"Kota New\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/user/2OrLDTK6CUMYROmpfCVJBjk9wof/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"user",
+								"2OrLDTK6CUMYROmpfCVJBjk9wof",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2tzdWlkIjoiMk9va1dhMnlEdzd5aTdvOVJwc0FsNTh4dW9XIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNjgyMzE2ODcyfQ.8WNe-B1nW7KBQneUAqdSwY-eLYM0L1O7jQGNI_E9UaA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/user/2OrLNqYEmI8L8a4RUyWrUZHMosz",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"user",
+								"2OrLNqYEmI8L8a4RUyWrUZHMosz"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"user\",\r\n    \"password\": \"user\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh Token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2tzdWlkIjoiMk9yTE5xWUVtSThMOGE0UlV5V3JVWkhNb3N6Iiwicm9sZSI6InVzZXIiLCJleHAiOjE2ODI0MDAxMjd9.ydC8HvgDhsEJvUFJZse34vWmI5gOxXMO30W_BvqriAI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/refresh",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create User - Private",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2tzdWlkIjoiMk9vY0xYajFPdDEzRTYyWTVpa2Z0TDNiakRkIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNjgyMjQ0ODcyfQ.2Kj8y964CxZc25Ncon57C43JDjp9VY4UqeaHrUpdY9w",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"user1\",\r\n    \"password\": \"user1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9001/user/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9001",
+							"path": [
+								"user",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User - Private",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2tzdWlkIjoiMk9vY0xYajFPdDEzRTYyWTVpa2Z0TDNiakRkIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNjgyMjM5ODA2fQ.xuL0P83PZ8F2Lpe8KvDtAjRhTLlh82H717Q8wwEryYw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9001/user/2OonLcNZRGeTmau6XI4NsR4o3ej",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9001",
+							"path": [
+								"user",
+								"2OonLcNZRGeTmau6XI4NsR4o3ej"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

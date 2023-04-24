@@ -1,0 +1,35 @@
+version: "3"
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: mysql_container
+    restart: always
+    environment:
+      MYSQL_DATABASE: user_login
+      MYSQL_ROOT_PASSWORD: root
+
+  auth:
+    image: user_login:latest
+    container_name: auth_app
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - "9000:9000"
+    environment:
+      APP_NAME: auth
+      DB_HOST: db
+
+  user:
+    image: user_login:latest
+    container_name: user_app
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - "8000:8000"
+    environment:
+      APP_NAME: user
+      DB_HOST: db
+      AUTH_SERVICE_PRIVATE_URL: "auth:9001"
