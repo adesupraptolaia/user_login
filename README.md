@@ -61,3 +61,26 @@ and auth-app `http://localhost:9000/swagger/index.html`
 ## Postman
 
 for testing purpose, use postman collection by importing file [postman.json](https://github.com/adesupraptolaia/user_login/blob/main/assert/postman.json) to your postman app
+
+## Test
+
+- admin
+
+  ```
+  username: admin
+  password: admin
+
+  ksuid: 2OokWa2yDw7yi7o9RpsAl58xuoW
+  ```
+
+- user
+
+  ```
+  username: user
+  password: user
+
+  ksuid: 2OokWdyzR17GBzVsF6auODTuSxz
+  ```
+
+- kube replica
+  ![kube_replica](https://github.com/adesupraptolaia/user_login/blob/main/assert/kube_replicas.png)
