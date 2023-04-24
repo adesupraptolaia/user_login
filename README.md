@@ -12,13 +12,13 @@ Port 9001 (actually) will not expose to external, it can only access internally 
 ## Flow
 
 - Login User Flow
-  ![create_new_user_flow](https://github.com/adesupraptolaia/user_login/blob/main/assert/assert/login_flow.png)
+  ![create_new_user_flow](https://github.com/adesupraptolaia/user_login/blob/main/assert/login_flow.png)
 
 - Create New User Flow
-  ![create_new_user_flow](https://github.com/adesupraptolaia/user_login/blob/main/assert/assert/create_new_user_flow.png)
+  ![create_new_user_flow](https://github.com/adesupraptolaia/user_login/blob/main/assert/create_new_user_flow.png)
 
 - Delete User Flow
-  ![create_new_user_flow](https://github.com/adesupraptolaia/user_login/blob/main/assert/assert/delete_user_flow.png)
+  ![create_new_user_flow](https://github.com/adesupraptolaia/user_login/blob/main/assert/delete_user_flow.png)
 
 ## How to running
 
